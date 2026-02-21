@@ -64,8 +64,20 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: error.message }, { status: 500 })
     }
 
-    // TODO: Trigger matching algorithm
-    // For now, just return the created task
+    // Trigger matching algorithm (async, don't wait)
+    if (data.id) {
+      // Import dynamically to avoid circular deps
+      import('@/lib/matching').then(({ autoAssignTask }) => {
+        autoAssignTask(data.id).then(result => {
+          if (result.success && result.botId) {
+            // Send webhook notification
+            import('@/lib/webhook').then(({ notifyBotOfAssignment }) => {
+              notifyBotOfAssignment(data.id, result.botId!)
+            })
+          }
+        })
+      })
+    }
 
     return NextResponse.json(data, { status: 201 })
   } catch (error) {
