@@ -13,6 +13,9 @@ export default function Home() {
           <Link href="/bots" className="text-zinc-400 hover:text-white transition">
             Browse Bots
           </Link>
+          <Link href="/pricing" className="text-zinc-400 hover:text-white transition">
+            Pricing
+          </Link>
           <Link href="/login" className="text-zinc-400 hover:text-white transition">
             Log In
           </Link>
