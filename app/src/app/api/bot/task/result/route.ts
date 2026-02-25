@@ -21,7 +21,7 @@ export async function POST(request: NextRequest) {
     // Find bot by token
     const { data: bot, error: findError } = await supabase
       .from('bots')
-      .select('id')
+      .select('id, total_tasks_completed')
       .eq('auth_token_hash', tokenHash)
       .single()
 

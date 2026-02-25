@@ -1,9 +1,9 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { Suspense, useEffect, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 
-export default function ConnectPage() {
+function ConnectContent() {
   const searchParams = useSearchParams()
   const [status, setStatus] = useState<'loading' | 'not_connected' | 'onboarding' | 'connected'>('loading')
   const [onboardingUrl, setOnboardingUrl] = useState<string | null>(null)
@@ -218,5 +218,17 @@ export default function ConnectPage() {
         </p>
       </div>
     </div>
+  )
+}
+
+export default function ConnectPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gray-950 text-white p-8 flex items-center justify-center">
+        <div className="w-5 h-5 border-2 border-amber-500 border-t-transparent rounded-full animate-spin" />
+      </div>
+    }>
+      <ConnectContent />
+    </Suspense>
   )
 }

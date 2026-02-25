@@ -1,11 +1,10 @@
 import Stripe from 'stripe'
 
-if (!process.env.STRIPE_SECRET_KEY) {
-  throw new Error('Missing STRIPE_SECRET_KEY environment variable')
-}
+// Use dummy key during build if not available
+const stripeKey = process.env.STRIPE_SECRET_KEY || 'sk_test_placeholder_for_build'
 
-export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
-  apiVersion: '2025-05-28.basil',
+export const stripe = new Stripe(stripeKey, {
+  apiVersion: '2026-01-28.clover',
 })
 
 // Platform fee: 15%

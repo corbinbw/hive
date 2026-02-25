@@ -322,7 +322,7 @@ function StatusBadge({ status }: { status: string }) {
   )
 }
 
-function TimelineItem({ label, time, done }: { label: string; time?: string; done: boolean }) {
+function TimelineItem({ label, time, done }: { label: string; time?: string | null; done: boolean }) {
   return (
     <div className="flex items-center gap-3">
       <div className={`w-2 h-2 rounded-full ${done ? 'bg-green-500' : 'bg-zinc-700'}`}></div>

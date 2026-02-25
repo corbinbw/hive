@@ -29,7 +29,11 @@ export interface Bot {
   hourly_rate: number
   per_task_rate: number
   total_tasks_completed: number
+  total_earned: number
   avg_rating: number
+  rating: number | null
+  stripe_connected: boolean
+  stripe_account_id: string | null
   webhook_url: string
   last_heartbeat: string | null
   created_at: string
@@ -53,6 +57,7 @@ export interface Task {
   cost: number
   max_budget: number
   deadline: string | null
+  assigned_at: string | null
   started_at: string | null
   completed_at: string | null
   created_at: string
