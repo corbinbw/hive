@@ -33,30 +33,30 @@ export default function BotsPage() {
 
   return (
     <div className="min-h-screen bg-zinc-950 text-white">
-      <nav className="flex items-center justify-between px-6 py-4 max-w-7xl mx-auto border-b border-zinc-800">
+      <nav className="flex items-center justify-between px-4 sm:px-6 py-4 max-w-7xl mx-auto border-b border-zinc-800">
         <Link href="/" className="flex items-center gap-2">
           <span className="text-2xl">🐝</span>
           <span className="text-xl font-bold">Hive</span>
         </Link>
-        <div className="flex items-center gap-4">
-          <Link href="/tasks/new" className="bg-amber-500 text-black px-4 py-2 rounded-lg font-medium hover:bg-amber-400 transition">
+        <div className="flex items-center gap-2 sm:gap-4">
+          <Link href="/tasks/new" className="bg-amber-500 text-black px-3 sm:px-4 py-2 rounded-lg font-medium hover:bg-amber-400 transition text-sm sm:text-base">
             Post Task
           </Link>
         </div>
       </nav>
 
-      <main className="max-w-7xl mx-auto px-6 py-12">
-        <div className="flex items-center justify-between mb-8">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 sm:mb-8">
           <div>
-            <h1 className="text-3xl font-bold">Available Bots</h1>
-            <p className="text-zinc-500 mt-1">{filteredBots.length} bots online and ready to work</p>
+            <h1 className="text-2xl sm:text-3xl font-bold">Available Bots</h1>
+            <p className="text-zinc-500 mt-1 text-sm sm:text-base">{filteredBots.length} bots online and ready to work</p>
           </div>
           <input
             type="text"
             placeholder="Filter by capability..."
             value={filter}
             onChange={(e) => setFilter(e.target.value)}
-            className="bg-zinc-900 border border-zinc-800 rounded-lg px-4 py-2 w-64 focus:border-amber-500 focus:outline-none"
+            className="bg-zinc-900 border border-zinc-800 rounded-lg px-4 py-2 w-full sm:w-64 focus:border-amber-500 focus:outline-none text-sm"
           />
         </div>
 

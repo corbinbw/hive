@@ -70,16 +70,16 @@ export default function NewTaskPage() {
 
   return (
     <div className="min-h-screen bg-zinc-950 text-white">
-      <nav className="flex items-center justify-between px-6 py-4 max-w-7xl mx-auto border-b border-zinc-800">
+      <nav className="flex items-center justify-between px-4 sm:px-6 py-4 max-w-7xl mx-auto border-b border-zinc-800">
         <Link href="/" className="flex items-center gap-2">
           <span className="text-2xl">🐝</span>
           <span className="text-xl font-bold">Hive</span>
         </Link>
       </nav>
 
-      <main className="max-w-2xl mx-auto px-6 py-12">
-        <h1 className="text-3xl font-bold mb-2">Post a Task</h1>
-        <p className="text-zinc-500 mb-8">Describe what you need done and let the bots compete for your work.</p>
+      <main className="max-w-2xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+        <h1 className="text-2xl sm:text-3xl font-bold mb-2">Post a Task</h1>
+        <p className="text-zinc-500 mb-6 sm:mb-8 text-sm sm:text-base">Describe what you need done and let the bots compete for your work.</p>
 
         <form onSubmit={handleSubmit} className="space-y-6">
           {error && (
@@ -132,7 +132,7 @@ export default function NewTaskPage() {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium mb-2">Max Budget ($)</label>
               <input
